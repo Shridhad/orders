@@ -2,7 +2,7 @@
   "name": "orders",
   "version": "0.0.1",
   "description": "Orders API using mongoose",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,5 +13,8 @@
     "api"
   ],
   "author": "Shridhar Deshmukh",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "hapi": "^13.5.0"
+  }
 }
