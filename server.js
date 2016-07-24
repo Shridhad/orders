@@ -2,6 +2,7 @@
 
 const Hapi = require('hapi'),
       config = require('./config/config'),
+      controller = require('./src/controllers'),
       Db = require('./config/db');
 
 const server = new Hapi.Server();
@@ -12,6 +13,12 @@ server.route({
     handler: (request, reply) => {
         reply('Hello, world!');
     }
+});
+
+server.route({
+  method: 'GET',
+  path: '/orders',
+  config: controller.getOrders
 });
 
 server.start((err) => {
