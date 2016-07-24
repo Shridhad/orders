@@ -1,11 +1,11 @@
 'use strict';
 
 const Hapi = require('hapi'),
+      config = require('./config/config'),
       Db = require('./config/db');
 
 const server = new Hapi.Server();
-server.connection({ port: 3333 });
-
+server.connection({port: config.server.port});
 server.route({
     method: 'GET',
     path: '/',
