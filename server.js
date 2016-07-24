@@ -7,19 +7,15 @@ const Hapi = require('hapi'),
 
 const server = new Hapi.Server();
 server.connection({port: config.server.port});
-server.route({
-    method: 'GET',
-    path: '/',
+
+server.route({ method: 'GET', path: '/',
     handler: (request, reply) => {
         reply('Hello, world!');
     }
 });
 
-server.route({
-  method: 'GET',
-  path: '/orders',
-  config: controller.getOrders
-});
+server.route({ method: 'GET', path: '/orders', config: controller.getOrders });
+server.route({ method: 'GET', path: '/orders/{orderId}', config: controller.getOrder });
 
 server.start((err) => {
     if (err) {

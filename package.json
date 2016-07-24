@@ -15,6 +15,7 @@
   "author": "Shridhar Deshmukh",
   "license": "ISC",
   "dependencies": {
+    "boom": "^3.2.2",
     "hapi": "^13.5.0",
     "mongoose": "^4.5.6"
   }
