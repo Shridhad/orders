@@ -18,7 +18,7 @@ server.route({ method: 'GET', path: '/orders', config: controller.getOrders });
 server.route({ method: 'GET', path: '/orders/{orderId}', config: controller.getOrder });
 server.route({ method: 'POST', path: '/orders', config: controller.postOrder });
 
-server.start((err) => {
+server.start( err => {
     if (err) {
         throw err;
     }

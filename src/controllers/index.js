@@ -2,8 +2,8 @@ const Order = require('../models/order'),
       Joi = require('joi'),
       Boom = require('boom');
 
-const _reply = function(message, reply) {
-  return function(error, response) {
+const _reply = (message, reply) => {
+  return (error, response) => {
     if(error) return reply(Boom.badImplementation(error));
     if(!response) return reply(Boom.notFound(message));
     return reply(response);
@@ -11,16 +11,12 @@ const _reply = function(message, reply) {
 };
 
 exports.getOrders = {
-    handler: function(request, reply) {
-        Order.find({}, _reply('No Orders Found', reply));
-    }
+    handler: (request, reply) => Order.find({}, _reply('No Orders Found', reply));
 };
 
 exports.getOrder = {
-    handler: function(request, reply) {
-        Order.findOne({
-            '_id': request.params.orderId
-        }, _reply("Order Not Found", reply));
+    handler: (request, reply) => {
+      Order.findOne({'_id': request.params.orderId}, _reply("Order Not Found", reply));
     }
 };
 
@@ -39,4 +35,4 @@ exports.postOrder = {
       var order = new Order(request.payload);
       order.save(_reply("", reply));
     }
-}
+};
