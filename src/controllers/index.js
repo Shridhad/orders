@@ -11,7 +11,7 @@ const _reply = (message, reply) => {
 };
 
 exports.getOrders = {
-    handler: (request, reply) => Order.find({}, _reply('No Orders Found', reply));
+    handler: (request, reply) => Order.find({}, _reply('No Orders Found', reply))
 };
 
 exports.getOrder = {
