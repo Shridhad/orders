@@ -19,6 +19,6 @@ exports.getOrder = {
     handler: function(request, reply) {
         Order.findOne({
             '_id': request.params.orderId
-        }, _reply("ORder Not Found", reply));
+        }, _reply("Order Not Found", reply));
     }
 };
