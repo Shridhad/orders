@@ -36,3 +36,14 @@ exports.postOrder = {
       order.save(_reply("", reply));
     }
 };
+
+exports.removeOrder = {
+    validate: {
+      params: {
+        orderId: Joi.string().required()
+      }
+    },
+    handler: (request, reply) => {
+      Order.findOneAndRemove({'_id': request.params.orderId}, _reply("Order Not Found", reply));
+    }
+}
