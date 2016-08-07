@@ -24,10 +24,10 @@ exports.postOrder = {
     validate: {
       payload: {
         customer: Joi.object().keys({
-          name: Joi.string(),
+          name: Joi.string().required(),
           email: Joi.string().email()
-        }),
-        description: Joi.string().min(10),
+        }).required(),
+        description: Joi.string().min(10).required(),
         price: Joi.number().required()
       }
     },
